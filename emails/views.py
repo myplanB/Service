@@ -14,7 +14,7 @@ def index(request):
     mail_pass = os.getenv('pass')  # password
 
     sender = 'zhangzheming_282@163.com'  # sender
-    receivers = ['zhangzheming@citicbank.com', 'jipeng1@citicbank.com']  # receiver
+    receivers = ['******', '******']  # receiver
 
     content = request.GET.get('content')
     print(content)
