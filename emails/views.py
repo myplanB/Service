@@ -14,7 +14,17 @@ def index(request):
     mail_pass = os.getenv('pass')  # password
 
     sender = 'zhangzheming_282@163.com'  # sender
-    receivers = ['******', '******']  # receiver
+    receivers = []  # receiver
+    emails = request.GET.get('l').split(',')
+    
+    if len(emails) == 1:
+        receivers.append(emails[0])
+    elif len(emails) > 1:
+        for i in emails:
+            receivers.append(i)
+    print(receivers)
+    print(type(emails))
+    print(emails)
 
     content = request.GET.get('content')
     print(content)
