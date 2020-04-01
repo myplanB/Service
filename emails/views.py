@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import os
 
+
 # Create your views here.
 @require_http_methods(["GET"])
 def index(request):
@@ -16,7 +17,7 @@ def index(request):
     sender = 'zhangzheming_282@163.com'  # sender
     receivers = []  # receiver
     emails = request.GET.get('l').split(',')
-    
+
     if len(emails) == 1:
         receivers.append(emails[0])
     elif len(emails) > 1:
@@ -41,3 +42,8 @@ def index(request):
         return HttpResponse('mail has been send successfully.')
     except smtplib.SMTPException as e:
         return HttpResponse('error is :' + str(e))
+
+
+@require_http_methods(["POST"])
+def upload_file(request):
+    pass
